@@ -1,23 +1,27 @@
 # ⚙️ Android Settings Tweaker
 
-Batch modify Android settings with presets — gaming, battery, privacy, UI.
+Kotlin Android app that exposes hidden Android settings via Shizuku — no root required.
 
-## Usage
+## Features
+- Animation speed (window, transition)
+- Pointer speed
+- Screen timeout
+- Hidden developer options
+- Battery saver settings
+- Display refresh rate (if available)
 
+## Install
 ```bash
-python3 tweaker.py --preset gaming    # apply gaming preset
-python3 tweaker.py --preset battery   # battery optimization
-python3 tweaker.py --preset privacy   # privacy hardening
-python3 tweaker.py --set display_brightness 200  # single setting
-python3 tweaker.py --list             # show all available presets
+git clone https://github.com/OutrageousStorm/android-settings-tweaker
+cd android-settings-tweaker
+./gradlew assembleDebug
+adb install app/build/outputs/apk/debug/app-debug.apk
 ```
 
-## Presets
+## Requirements
+- Android 8+
+- Shizuku running
+- Grant Shizuku permission in app
 
-| Preset | What it does |
-|--------|-------------|
-| gaming | High fps, disable animations, lock screen off timeout |
-| battery | Dim display, disable background data, aggressive doze |
-| privacy | Location off, ad tracking off, clipboard access blocked |
-| performance | Disable visual effects, max memory allocation |
-| gaming_extreme | Above + disable Wi-Fi, lock GPU freq, 90fps min |
+## Build with GitHub Actions
+Pushes release APK automatically on tag.
